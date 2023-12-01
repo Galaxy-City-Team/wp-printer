@@ -83,7 +83,9 @@ function AddItem(source, name, amount, info)
     if not IsDuplicityVersion() then return end
     if Config.Framework == 'esx' then
         local xPlayer = Core.GetPlayerFromId(source)
-        return xPlayer.addInventoryItem(name, amount)
+        return 
+exports['qs-inventory']:AddItem(xPlayer.source, name, amount, nil, info)
+        --return xPlayer.addInventoryItem(name, amount)
     elseif Config.Framework == 'qb' then
         local Player = Core.Functions.GetPlayer(source)
         TriggerClientEvent('inventory:client:ItemBox', source, Core.Shared.Items[name], "add")
