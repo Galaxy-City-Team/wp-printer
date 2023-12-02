@@ -10,7 +10,8 @@ RegisterServerEvent('wp-printer:server:SaveDocument', function(url)
     if url ~= nil then
         if validexts[extension] then
             info.url = url
-            AddItem(src, 'printerdocument', 1, info)
+            exports['qs-inventory']:AddItem(src, 'printerdocument', 1, nil, info)
+            --AddItem(src, 'printerdocument', 1, info)
         else
             Notify('Thats not a valid extension, only '..Config.ValidExtensionsText..' extension links are allowed.', "error", src)
         end
